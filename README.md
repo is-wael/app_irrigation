@@ -7,12 +7,6 @@ Un simulateur web interactif pour l'optimisation de l'irrigation agricole pilot�
 
 Ce projet propose une solution complète pour la gestion intelligente de l'irrigation, depuis la modélisation d'un "jumeau numérique" jusqu'à une application web de simulation interactive. En s'appuyant sur des données météorologiques en temps réel et un modèle d'intelligence artificielle, l'application permet de tester et de visualiser des stratégies d'arrosage pour optimiser la consommation d'eau.
 
-<br>
-
-<p align="center">
-<img src="placeholder_demo.gif" alt="Démo de l'application" width="80%">
-<em>(Remplacez ce placeholder par un GIF ou une capture d'écran de votre application)</em>
-</p>
 
 🎯 Problématique et Objectifs
 Face aux défis croissants liés à la gestion des ressources en eau, l'agriculture de précision est devenue essentielle. Ce projet s'attaque à l'inefficacité des méthodes d'irrigation traditionnelles en proposant un système qui décide de manière autonome quand et combien irriguer.
