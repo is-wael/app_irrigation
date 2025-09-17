@@ -9,10 +9,7 @@ Ce projet documente le cycle de vie complet d'un système d'irrigation intellige
 
 <br>
 
-<p align="center">
-<img src="placeholder_projet.jpg" alt="Montage photo du projet" width="90%">
-<em>(Remplacez ce placeholder par un montage montrant l'interface web et une photo du prototype)</em>
-</p>
+
 
 📂 Structure du Projet en Deux Phases
 Ce dépôt est organisé en deux parties complémentaires :
