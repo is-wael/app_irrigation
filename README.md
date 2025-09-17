@@ -1,141 +1,170 @@
 <div align="center">
 
-💧 Système d'Irrigation Intelligent avec IA
-Un simulateur web interactif pour l'optimisation de l'irrigation agricole piloté par l'intelligence artificielle.
+💧 Système d'Irrigation Intelligent : de la Simulation à la Réalité
+Un projet complet en deux phases : un simulateur web interactif piloté par l'IA et son prototype physique fonctionnel.
 
 </div>
 
-Ce projet propose une solution complète pour la gestion intelligente de l'irrigation, depuis la modélisation d'un "jumeau numérique" jusqu'à une application web de simulation interactive. En s'appuyant sur des données météorologiques en temps réel et un modèle d'intelligence artificielle, l'application permet de tester et de visualiser des stratégies d'arrosage pour optimiser la consommation d'eau.
+Ce projet documente le cycle de vie complet d'un système d'irrigation intelligent, de sa conception et son optimisation dans un environnement virtuel à sa mise en œuvre matérielle. L'objectif est de créer une solution low-cost et open-source pour l'agriculture de précision, en utilisant une méthodologie "Virtual First" pour dé-risquer et accélérer le développement.
 
+<br>
 
-🎯 Problématique et Objectifs
-Face aux défis croissants liés à la gestion des ressources en eau, l'agriculture de précision est devenue essentielle. Ce projet s'attaque à l'inefficacité des méthodes d'irrigation traditionnelles en proposant un système qui décide de manière autonome quand et combien irriguer.
+<p align="center">
+<img src="placeholder_projet.jpg" alt="Montage photo du projet" width="90%">
+<em>(Remplacez ce placeholder par un montage montrant l'interface web et une photo du prototype)</em>
+</p>
 
-Les principaux objectifs sont :
+📂 Structure du Projet en Deux Phases
+Ce dépôt est organisé en deux parties complémentaires :
 
-Simuler un écosystème sol-plante-météo de manière réaliste.
+Phase 1 : Le Simulateur Virtuel (Le "Cerveau") 🧠
+Une application web développée avec Streamlit qui agit comme un "jumeau numérique" du système.
 
-Développer un cerveau IA capable de prendre des décisions d'irrigation nuancées.
+Modélisation Physique : Simule le comportement de l'humidité du sol en fonction de la météo (via API OpenWeatherMap) et du type de sol.
 
-Créer une interface web interactive pour le contrôle et l'analyse.
+Cerveau IA : Un modèle RandomForestRegressor entraîné sur des milliers de scénarios pour prédire la quantité d'eau optimale.
 
-Valider la méthodologie "Virtual First" pour le développement de systèmes IoT.
+Laboratoire d'Expérimentation : Permet de tester des stratégies, de calibrer des seuils et de visualiser l'impact de chaque paramètre sans aucun coût matériel.
 
-✨ Fonctionnalités Principales
-🧠 Cerveau Intelligent : Les décisions sont prises par un modèle de Machine Learning (RandomForestRegressor) entraîné sur des milliers de scénarios simulés.
+Phase 2 : Le Prototype Physique (Le "Corps") 🦾
+Un montage électronique fonctionnel qui exécute la logique d'irrigation dans le monde réel.
 
-🌦️ Données en Temps Réel : Connexion directe à l'API OpenWeatherMap pour des conditions météorologiques à jour.
+Microcontrôleur : Un ESP8266 (NodeMCU) sert d'unité de contrôle.
 
-🌍 Modélisation de Sol Avancée : Simule différents types de sol (sableux, normal, argileux) avec des propriétés d'absorption et d'évaporation distinctes.
+Capteur : Un capteur d'humidité du sol capacitif mesure l'état du sol en temps réel.
 
-🖥️ Tableau de Bord Interactif : Une interface web construite avec Streamlit permet de configurer chaque paramètre de la simulation et de visualiser les résultats en temps réel.
+Actionneur : Une mini-pompe à eau est activée via un module relais pour délivrer l'eau.
 
-📊 Analyse Visuelle Détaillée : Des graphiques interactifs (Plotly) et des moniteurs de statut clairs pour une analyse approfondie des résultats.
+Logique Embarquée : Le firmware, écrit en C++/Arduino, applique les seuils et les stratégies validés grâce au simulateur.
 
-🔐 Gestion Sécurisée des Clés : Utilise le système de secrets de Streamlit pour protéger les clés API.
-
-🛠️ Stack Technique
+🛠️ Stack Technique et Matérielle
 Domaine
 
-Technologie
+Technologie / Composant
 
 Rôle
 
-Langage
+Simulation Web
 
-Python
+Streamlit, Pandas, Plotly
 
-Langage principal du projet.
+Interface utilisateur et analyse des données.
 
-Application Web
+Intelligence Artificielle
 
-Streamlit
+Scikit-learn, Joblib
 
-Framework pour la création de l'interface utilisateur interactive.
+Entraînement et exécution du modèle prédictif.
 
-Analyse de Données
+Microcontrôleur
 
-Pandas
+NodeMCU ESP8266
 
-Manipulation et stockage de l'historique de simulation.
+Unité de contrôle du prototype.
 
-Machine Learning
+Capteur
 
-Scikit-learn
+Capteur d'humidité capacitif V1.2
 
-Entraînement et exécution du modèle d'IA.
+Mesure de l'humidité du sol.
 
-Visualisation
+Actionneur
 
-Plotly
+Module Relais 5V, Pompe 5V
 
-Création des graphiques interactifs.
+Commande et distribution de l'eau.
 
-Requêtes API
-
-Requests
-
-Communication avec l'API OpenWeatherMap.
-
-Sauvegarde Modèle
-
-Joblib
-
-Sérialisation et chargement du modèle d'IA.
-
-🚀 Lancer le Projet en Local
-Suivez ces instructions pour exécuter l'application sur votre machine.
-
-Prérequis
-Python 3.9+
-
-Un gestionnaire de paquets (pip)
-
+🚀 Lancer le Simulateur Web (Phase 1)
 1. Configuration Initiale
-Clonez ce dépôt sur votre machine locale :
+Clonez le dépôt et naviguez dans le dossier :
 
 git clone [https://github.com/VOTRE_NOM_UTILISATEUR/VOTRE_REPO.git](https://github.com/VOTRE_NOM_UTILISATEUR/VOTRE_REPO.git)
 cd VOTRE_REPO
 
-2. Création de l'Environnement Virtuel
-Il est fortement recommandé d'utiliser un environnement virtuel pour isoler les dépendances du projet.
-
-# Créer l'environnement
+2. Environnement Virtuel et Dépendances
+# Créer et activer l'environnement
 python -m venv venv
+# Windows: venv\Scripts\activate | macOS/Linux: source venv/bin/activate
 
-# Activer l'environnement
-# Sur Windows :
-venv\Scripts\activate
-# Sur macOS/Linux :
-source venv/bin/activate
-
-3. Installation des Dépendances
-Le fichier requirements.txt contient toutes les bibliothèques nécessaires.
-
+# Installer les bibliothèques
 pip install -r requirements.txt
 
-4. Configuration de la Clé API
-Pour que l'application puisse communiquer avec OpenWeatherMap, vous devez fournir votre clé API. Créez un dossier .streamlit et, à l'intérieur, un fichier secrets.toml.
+3. Configurer la Clé API
+Créez le fichier .streamlit/secrets.toml et ajoutez votre clé OpenWeatherMap :
 
-# Contenu du fichier : .streamlit/secrets.toml
+# Fichier: .streamlit/secrets.toml
+OPENWEATHER_API_KEY = "VOTRE_CLE_API_ICI"
 
-OPENWEATHER_API_KEY = "VOTRE_CLE_API_PERSONNELLE_ICI"
-
-(Remplacez VOTRE_CLE_API_PERSONNELLE_ICI par votre clé réelle.)
-
-5. Lancement de l'Application
-Une fois la configuration terminée, lancez l'application avec la commande suivante :
-
+4. Lancer l'Application
 streamlit run app.py
 
-Votre navigateur devrait s'ouvrir automatiquement à l'adresse http://localhost:8501.
+L'application sera accessible sur http://localhost:8501.
+
+🔌 Assembler et Programmer le Prototype (Phase 2)
+1. Composants Nécessaires
+1x NodeMCU ESP8266
+
+1x Capteur d'humidité du sol capacitif V1.2
+
+1x Module Relais 1 canal 5V
+
+1x Mini-pompe à eau submersible 5V
+
+Des fils de connexion (Dupont)
+
+Une source d'alimentation externe 5V pour la pompe.
+
+2. Schéma de Câblage
+(Insérez ici une image de votre schéma de câblage, par exemple schema.png)
+
+<p align="center">
+<img src="schema_placeholder.png" alt="Schéma de câblage" width="70%">
+</p>
+
+Composant
+
+Connexion sur l'ESP8266
+
+Capteur (VCC)
+
+3.3V
+
+Capteur (GND)
+
+GND
+
+Capteur (AOUT)
+
+A0
+
+Relais (VCC)
+
+VIN (5V)
+
+Relais (GND)
+
+GND
+
+Relais (IN)
+
+D1
+
+3. Programmation
+Configurez votre Arduino IDE pour la carte NodeMCU ESP8266.
+
+Ouvrez le fichier firmware/esp8266_firmware.ino.
+
+Calibrez votre capteur : Modifiez les valeurs VALEUR_CAPTEUR_SEC et VALEUR_CAPTEUR_HUMIDE après avoir fait des tests (un dans l'air, un dans l'eau).
+
+Ajustez le seuil : Modifiez la valeur SEUIL_HUMIDITE_POURCENT en vous basant sur les résultats de vos simulations.
+
+Téléversez le code sur votre ESP8266.
 
 📁 Structure du Dépôt
 .
-├── .gitignore               # Fichiers et dossiers ignorés par Git.
-├── app.py                   # Script principal de l'application Streamlit.
-├── irrigation_model.joblib  # Modèle d'IA pré-entraîné.
-├── README.md                # Ce fichier.
-├── requirements.txt         # Dépendances Python du projet.
-└── .streamlit/
-    └── secrets.toml         # Fichier (local) pour stocker la clé API.
+├── .gitignore
+├── app.py                     # Script du simulateur web Streamlit
+├── irrigation_model.joblib    # Modèle d'IA pré-entraîné
+├── README.md                  # Ce fichier
+├── requirements.txt           # Dépendances Python pour le simulateur
+└── smart_irrigation.rar       # Code Arduino pour le prototype
